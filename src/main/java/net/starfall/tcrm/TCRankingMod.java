@@ -30,7 +30,7 @@ public class TCRankingMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Taeko & Co Ranking Mod initialized");
+		LOGGER.info("Taeko & Co Rank Mod initialized");
 		// Register the commands
 		CommandRegistrationCallback.EVENT.register(SetRankCommand::register);
 		CommandRegistrationCallback.EVENT.register(SetInviterCommand::register);
