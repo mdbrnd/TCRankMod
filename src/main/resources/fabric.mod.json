@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "tcrm",
+  "version": "${version}",
+
+  "name": "Taeko & Co Ranking System Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "starfall"
+  ],
+  "contact": {
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/tcrm/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.starfall.tcrm.TCRankingMod"
+    ],
+    "client": [
+      "net.starfall.tcrm.TCRankingModClient"
+    ]
+  },
+  "mixins": [
+    "tcrm.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric-api": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
