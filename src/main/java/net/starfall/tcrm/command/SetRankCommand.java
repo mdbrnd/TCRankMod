@@ -25,27 +25,28 @@ public class SetRankCommand {
         ServerCommandSource source = context.getSource();
         ServerPlayerEntity caller = source.getPlayer();
 
+        Text callerDisplayName;
+
+        // Caller == null -> called from server
+        if (caller == null) callerDisplayName = Text.literal("Server");
+        else callerDisplayName = caller.getDisplayName();
+
         // Only if player not server called it
-        if (caller != null) {
-            Text playerDisplayName = caller.getDisplayName();
-
-            if (!RankSuggestionProvider.isValidRank(rankName)) {
-                source.sendError(Text.literal("Invalid rank " + "\"" + rankName +"\""));
-                source.sendFeedback(Text.literal("Available ranks are:"), false);
-                for (String rank : RankSuggestionProvider.ValidRanks) {
-                    source.sendFeedback(Text.literal(rank), false);
-                }
-                return -1;
+        if (!RankSuggestionProvider.isValidRank(rankName)) {
+            source.sendError(Text.literal("Invalid rank " + "\"" + rankName +"\""));
+            source.sendFeedback(Text.literal("Available ranks are:"), false);
+            for (String rank : RankSuggestionProvider.ValidRanks) {
+                source.sendFeedback(Text.literal(rank), false);
             }
-
-            // Make every requested player the wanted rank
-            for (ServerPlayerEntity target : players) {
-                DataManager.setRank((IEntityDataSaver) target, rankName);
-                source.sendFeedback(Text.literal(playerDisplayName.getString() + " made " + target.getDisplayName().getString() + " a " + rankName), true);
-            }
-            return 1;
+            return -1;
         }
-        return -1;
+
+        // Make every requested player the wanted rank
+        for (ServerPlayerEntity target : players) {
+            DataManager.setRank((IEntityDataSaver) target, rankName);
+            source.sendFeedback(Text.literal(callerDisplayName.getString() + " made " + target.getDisplayName().getString() + " a " + rankName), true);
+        }
+        return 1;
     }
 
     // Registers the command to the registry, so it can be recognized by minecraft
