@@ -19,8 +19,8 @@ public class MyRankCommand {
 
         // Only if player not server called it
         if (player != null) {
-            String rank = ((IEntityDataSaver)player).getRankNbt().getString("rank");
-            if (rank != null && rank != "") {
+            String rank = ((IEntityDataSaver)player).getPersistentData().getString("rank");
+            if (rank != null && !rank.equals("")) {
                 source.sendFeedback(Text.literal("Your rank is: " + rank), false);
             } else {
                 source.sendFeedback(Text.literal("You currently don't have a rank."), false);
@@ -31,6 +31,6 @@ public class MyRankCommand {
     }
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandRegistryAccess, CommandManager.RegistrationEnvironment registrationEnvironment) {
-        dispatcher.register(literal("myrank").executes(context -> run(context)));
+        dispatcher.register(literal("myrank").executes(MyRankCommand::run));
     }
 }

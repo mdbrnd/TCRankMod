@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Taeko & Co Ranking System Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "This mod creates a ranking system like designed in the Taeko & Co discord server. Visitors and helpers can only play when accompanied by their inviters",
   "authors": [
     "starfall"
   ],
@@ -19,9 +19,6 @@
   "entrypoints": {
     "main": [
       "net.starfall.tcrm.TCRankingMod"
-    ],
-    "client": [
-      "net.starfall.tcrm.TCRankingModClient"
     ]
   },
   "mixins": [
