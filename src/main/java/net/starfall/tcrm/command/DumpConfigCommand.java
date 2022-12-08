@@ -21,7 +21,6 @@ public class DumpConfigCommand {
         ServerCommandSource source = context.getSource();
         
         // Dump TCRankingMod.config in a readable format using source.sendFeedback()
-        // Make it colored
         source.sendFeedback(Text.literal( "Dumping config:").formatted(Formatting.AQUA).formatted(Formatting.ITALIC), false);
 
         source.sendFeedback(Text.literal("defaultRank: " + TCRankingMod.config.defaultRank).formatted(Formatting.YELLOW), false);

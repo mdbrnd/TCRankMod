@@ -11,7 +11,7 @@ public class Config {
 
     public Config() {
         this.enabled = true;
-        this.defaultRank = "admin";
+        this.defaultRank = "visitor";
         this.defaultInviterName = "taeko_chan";
         
         this.players = new ArrayList<>();
