@@ -18,24 +18,31 @@ public class ConfigManager {
         return new File(getConfigFilePath());
     }
 
-    public static void readConfig(boolean resetToDefault) throws IOException {
+    public static void readConfigIntoMemory() {
         // If config doesn't exist, create it with default values
         Gson gson = new Gson();
 
         File configFile = getConfigFile();
         if (!configFile.exists()) {
-            configFile.createNewFile();
-            Files.writeString(configFile.toPath(), gson.toJson(new Config())); // new Config() = hardcoded default values
-        }
+            try {
+                configFile.createNewFile();
+                Files.writeString(configFile.toPath(), gson.toJson(new Config())); // new Config() = hardcoded default values
 
-        // If resetToDefault is true, overwrite the config file with default values
-        if (resetToDefault) {
-            Files.writeString(configFile.toPath(), gson.toJson(new Config()));
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
 
         configFile = getConfigFile();
         // Read json
-        String json = Files.readString(configFile.toPath());
+        String json = "";
+        try {
+            json = Files.readString(configFile.toPath());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         TCRankingMod.LOGGER.info("Read config file: " + json);
 
         // Parse json
@@ -57,5 +64,11 @@ public class ConfigManager {
 
         // Log
         TCRankingMod.LOGGER.info("Saved config file: " + json);
+    }
+
+    public static void resetConfig() {
+        // Reset config
+        TCRankingMod.config = new Config();
+        saveConfig();
     }
 }

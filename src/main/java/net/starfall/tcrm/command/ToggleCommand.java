@@ -24,7 +24,7 @@ public class ToggleCommand {
         ConfigManager.saveConfig();
 
         // Send feedback to the user, green if it enabled, red if it disabled
-        source.sendFeedback(Text.of("Taeco & Co Ranking Mod " + (TCRankingMod.config.enabled ? "§aenabled" : "§cdisabled")), true);
+        source.sendFeedback(Text.of("Taeko & Co Ranking Mod " + (TCRankingMod.config.enabled ? "§aenabled" : "§cdisabled")), true);
         return 1;
     }
 

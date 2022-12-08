@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class RankSuggestionProvider implements SuggestionProvider<ServerCommandSource> {
 
-    public static final Collection<String> ValidRanks = new ArrayList<String>() {
+    public static final Collection<String> ValidRanks = new ArrayList<>() {
         {
             add("visitor");
             add("helper");
@@ -23,7 +23,7 @@ public class RankSuggestionProvider implements SuggestionProvider<ServerCommandS
     };
 
     public static boolean isValidRank(String rankName) {
-        return ValidRanks.contains(rankName);
+        return ValidRanks.contains(rankName.toLowerCase());
     }
 
     // Shows autocomplete suggestions when typing the rank, like how you get a list of players when you do /tp or /give for example

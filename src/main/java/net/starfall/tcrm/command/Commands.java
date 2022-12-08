@@ -9,8 +9,8 @@ public class Commands {
 		CommandRegistrationCallback.EVENT.register(SetInviterCommand::register);
 		CommandRegistrationCallback.EVENT.register(SetConfigCommand::register);
 
-		CommandRegistrationCallback.EVENT.register(MyRankCommand::register);
-		CommandRegistrationCallback.EVENT.register(MyInviterCommand::register);
+        CommandRegistrationCallback.EVENT.register(GetRankCommand::register);
+		CommandRegistrationCallback.EVENT.register(GetInviterCommand::register);
 
         CommandRegistrationCallback.EVENT.register(ToggleCommand::register);
     }

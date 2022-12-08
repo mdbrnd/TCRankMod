@@ -35,7 +35,6 @@ public class SetConfigCommand {
                         }
                     }
                 }
-                case "defaultInviterUUID" -> TCRankingMod.config.defaultInviterUUID = value;
                 case "defaultInviterName" -> TCRankingMod.config.defaultInviterName = value;
             }
 

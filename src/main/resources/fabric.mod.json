@@ -22,7 +22,7 @@
     ]
   },
   "mixins": [
-    "tcrm.mixins.json"
+
   ],
 
   "depends": {
