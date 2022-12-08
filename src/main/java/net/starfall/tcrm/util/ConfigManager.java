@@ -43,7 +43,7 @@ public class ConfigManager {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        TCRankingMod.LOGGER.info("Read config file: " + json);
+        //TCRankingMod.LOGGER.info("Read config file: " + json);
 
         // Parse json
         TCRankingMod.config = gson.fromJson(json, Config.class);
@@ -63,7 +63,7 @@ public class ConfigManager {
         }
 
         // Log
-        TCRankingMod.LOGGER.info("Saved config file: " + json);
+        //TCRankingMod.LOGGER.info("Saved config file: " + json);
     }
 
     public static void resetConfig() {
