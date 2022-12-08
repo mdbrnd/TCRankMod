@@ -19,10 +19,15 @@ public class DataManager {
         nbt.putString("inviter_name", inviter.getDisplayName().getString());
     }
 
-    public static void setEmptyInviter(IEntityDataSaver player) {
+    public static void setInviter(IEntityDataSaver player, String inviterUUID, String inviterName) {
         NbtCompound nbt = player.getPersistentData();
 
-        nbt.putString("inviter", "");
-        nbt.putString("inviter_name", "");
+        // Save the UUID of the inviter
+        nbt.putString("inviter", inviterUUID);
+        nbt.putString("inviter_name", inviterName);
+    }
+
+    public static void setInviterInConfig(String playerName) {
+    
     }
 }
