@@ -13,5 +13,7 @@ public class Commands {
 		CommandRegistrationCallback.EVENT.register(GetInviterCommand::register);
 
         CommandRegistrationCallback.EVENT.register(ToggleCommand::register);
+
+        CommandRegistrationCallback.EVENT.register(DumpConfigCommand::register);
     }
 }

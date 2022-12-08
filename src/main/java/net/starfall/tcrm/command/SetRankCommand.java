@@ -25,7 +25,7 @@ public class SetRankCommand {
 
         // Caller == null -> called from server
         if (caller == null) callerDisplayName = Text.literal("Server");
-        else callerDisplayName = caller.getDisplayName();
+        else callerDisplayName = caller.getName();
 
         if (!RankSuggestionProvider.isValidRank(rankName)) {
             source.sendError(Text.literal("Invalid rank " + "\"" + rankName +"\""));

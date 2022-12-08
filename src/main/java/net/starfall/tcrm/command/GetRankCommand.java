@@ -34,7 +34,7 @@ public class GetRankCommand {
 
         // Only if player not server called it
         if (caller != null) {
-            Player player = DataManager.getPlayer(caller.getDisplayName().getString());
+            Player player = DataManager.getPlayer(caller.getName().getString());
             if (player != null) source.sendFeedback(Text.literal("Your rank is: " + player.rank + (player.rank.equalsIgnoreCase(TCRankingMod.config.defaultRank) ? " (default rank)" : "")), false);
             else source.sendFeedback(Text.literal("You currently don't have a rank"), false);
             return 1;

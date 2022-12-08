@@ -36,7 +36,7 @@ public class GetInviterCommand {
 
         // Only if player not server called it
         if (caller != null) {
-            Player player = DataManager.getPlayer(caller.getDisplayName().getString());
+            Player player = DataManager.getPlayer(caller.getName().getString());
             if (player != null) {
                 boolean isInviterOnline = TCRankingMod.isPlayerOnline(player.inviterName, Objects.requireNonNull(caller.getServer()));
 

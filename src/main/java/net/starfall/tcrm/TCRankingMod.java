@@ -45,23 +45,23 @@ public class TCRankingMod implements ModInitializer {
 				// -> go through all players, look at their data, if they are visitor or helper
 				// without inviter on then kick them, if it is visitor with inviter then set to gm2
 				for (ServerPlayerEntity svpe : players) {
-					Player player = DataManager.getPlayer(svpe.getDisplayName().getString());
+					Player player = DataManager.getPlayer(svpe.getName().getString());
 					if (player == null) {
-						LOGGER.info("User " + svpe.getDisplayName().getString()
+						LOGGER.info("User " + svpe.getName().getString()
 								+ " doesn't have a rank yet, setting to default (" + config.defaultRank + ")");
 
-						DataManager.setRank(svpe.getDisplayName().getString(), config.defaultRank);
+						DataManager.setRank(svpe.getName().getString(), config.defaultRank);
 
-						LOGGER.info("User " + svpe.getDisplayName().getString()
+						LOGGER.info("User " + svpe.getName().getString()
 								+ " doesn't have an inviter yet, setting to default (" + config.defaultInviterName + ")");
 
-						DataManager.setInviter(svpe.getDisplayName().getString(), config.defaultInviterName);
+						DataManager.setInviter(svpe.getName().getString(), config.defaultInviterName);
 					}
 
-					player = DataManager.getPlayer(svpe.getDisplayName().getString());
+					player = DataManager.getPlayer(svpe.getName().getString());
 					String rankName = player.rank;
 					String inviterName = player.inviterName;
-					String playerName = svpe.getDisplayName().getString();
+					String playerName = svpe.getName().getString();
 					boolean isAdventureMode = svpe.interactionManager.getGameMode().equals(GameMode.ADVENTURE);
 
 					switch (rankName) {
@@ -107,7 +107,7 @@ public class TCRankingMod implements ModInitializer {
 	public static boolean isPlayerOnline(String name, MinecraftServer server) {
 		List<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList();
 		for (ServerPlayerEntity player : players) {
-			if (name.equalsIgnoreCase(player.getDisplayName().getString()))
+			if (name.equalsIgnoreCase(player.getName().getString()))
 				return true;
 		}
 		return false;
