@@ -1,9 +1,12 @@
-# Fabric Example Mod
+# Taeko & Co Rank Mod
 
 ## Setup
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod allows for different roles such as visitor, helper, member and admin.<br />
+Commands:<br />
+/myrank<br />
+/myinviter<br />
+Op only:<br />
+/setrank \<person\> \<rank\><br />
+/setinviterof \<person\> \<person\>
+![image](https://user-images.githubusercontent.com/64379111/205505663-3a84d597-9f17-43d9-ad25-63b57673d99d.png)
